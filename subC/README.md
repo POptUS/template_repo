@@ -8,4 +8,3 @@ and subB.  As such, it is included in its own python package
 Testing
 =======
 Since subC is included in `mytemplate2_pypkg` via symlink, it should be tested through that package.
-
