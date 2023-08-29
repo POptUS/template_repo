@@ -115,6 +115,19 @@ $ pip list
 $ python -m unittest mytemplate.subA.tests.TestComputeA
 ```
 
-## Adding a New Sub-package to a `mytemplate`
-* __TBD__
-
+## Adding a New Subpackage to `mytemplate`
+* Add new subpackage to the root of the repo in accord with the POptUS repository requirements (e.g., [subA](https://github.com/POptUS/template_repo/tree/main/subA))
+* Increment `VERSION` appropriately
+* Add in the new subpackage implementation as symlinks in the correct subdirectory
+* Update `load_tests.py` in the main package so that it builds a suite that includes the tests of the subpackage
+* Update the`README.md` file if necessary
+* Adapt `setup.py`
+  * Update or expand all requirements as needed
+  * Add test and package data in new subpackage to `package_data` if any
+  * Update all other metadata as needed
+* Update `tox.ini`
+  * Add a new testenv in `tox.ini` dedicated to the new subpackage if so desired
+  * Synchronize python version information to version changes made in `setup.py` (if any)
+* Do local testing with `tox` if so desired
+* Synchronize python version information in GitHub CI Action to version changes made in `setup.py` (if any)
+* Commit, push, and check associated GitHub CI Action log to see if constructed and integrated correctly
