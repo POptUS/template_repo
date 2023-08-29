@@ -28,3 +28,7 @@ class TestCompute(unittest.TestCase):
         # This shouldn't be in this test case in a real package.
         # I just didn't want to make a new test case...
         self.assertListEqual([1.1, 2.2, 3.3, 4.4, 5.5], myt.config)
+
+    def testAgain(self):
+        # This is just running all of the tests again...
+        myt.test()
