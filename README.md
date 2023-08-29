@@ -165,6 +165,3 @@ Note that `tox` will correctly and automatically run `aggregate` before the othe
 * Incorporate the package into the [GitHub CI Action](https://github.com/POptUS/template_repo/blob/main/.github/workflows/github-ci-action.yml)
 * Do local testing with `tox` if so desired
 * Commit, push, and check associated GitHub CI Action log to see if constructed and integrated correctly
-
-## Adding a New Sub-package to a Python Package
-* __TBD__
