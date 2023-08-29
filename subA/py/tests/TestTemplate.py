@@ -14,5 +14,5 @@ class TestTemplate(unittest.TestCase):
     def tearDown(self):
         print("teardown() is an optional fixture that is automatically called after each test")
 
-    def testNothin(self):
+    def testNothing(self):
         self.assertTrue(True)
