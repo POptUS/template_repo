@@ -23,6 +23,11 @@ repos can be [seeded from this template](https://docs.github.com/en/repositories
   * `m` - for a MATLAB implementation (e.g., [subA/m](https://github.com/POptUS/template_repo/tree/main/subA/m))
   * `py` - for a Python implementation (e.g., [subA/py](https://github.com/POptUS/template_repo/tree/main/subA/py))
   * Conventions for other languages __TBD__
+* Users of the code in the repository shall be able to use the code correctly by
+  cloning the repository and setting appropriate path variables correctly based
+  on the languages of each tool that they plan to use.
+* All public python packages shall be uploaded to [PyPi](https://pypi.org) so that users can choose
+  to use the code via installation with pip and without having to clone the repository.
 * This repository shall be setup so that it can host as many python packages as
   desired (e.g., [mytemplate_pypkg](https://github.com/POptUS/template_repo/tree/main/mytemplate_pypkg) and
   [mytemplate2_pypkg](https://github.com/POptUS/template_repo/tree/main/mytemplate2_pypkg)).  The python code
@@ -32,7 +37,7 @@ repos can be [seeded from this template](https://docs.github.com/en/repositories
   accomplished by [symbolic links](https://en.wikipedia.org/wiki/Symbolic_link)
   (e.g., [mytemplate_pypkg/src/mytemplate/subA](https://github.com/POptUS/template_repo/blob/main/mytemplate_pypkg/src/mytemplate/subA)).
 * The repository shall be setup so that all tests in the repository regardless
-  of language can be run via a [GitHub CI Action](https://github.com/POptUS/template_repo/blob/main/.github/workflows/github-action-ci.yml)
+  of language can be run via a [GitHub CI Action](https://github.com/POptUS/template_repo/blob/main/.github/workflows/github-ci-action.yml)
   and potentially through private build servers.
 * The repository shall be setup so that coverage of all code in python packages
   can be determined as a single coverage result with coverage results published as
@@ -49,22 +54,17 @@ repos can be [seeded from this template](https://docs.github.com/en/repositories
 * All python packages shall provide access to their version information via the
   command `<package>.__version__`.  While each package is free to determine
   their own versioning scheme, note that
-  [semantic versioning](https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/?highlight=version#semantic-versioning-preferred))
+  [semantic versioning](https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/?highlight=version#semantic-versioning-preferred)
   is the preferred scheme.  For information on providing the version
   information, see the discussion
   [here](https://packaging.python.org/guides/single-sourcing-package-version/#single-sourcing-the-version).
-  In this repo we use a dedicated [VERSION](https://github.com/POptUS/template_repo/blob/main/mytemplate_pypkg/VERSION) file coupled with
-  [setup.py](https://github.com/POptUS/template_repo/blob/main/mytemplate_pypkg/setup.py)
+  In this repo we use a dedicated [`VERSION`](https://github.com/POptUS/template_repo/blob/main/mytemplate_pypkg/VERSION) file coupled with
+  [`setup.py`](https://github.com/POptUS/template_repo/blob/main/mytemplate_pypkg/setup.py)
   and [`__init__.py`](https://github.com/POptUS/template_repo/blob/main/mytemplate_pypkg/src/mytemplate/__init__.py). 
 * All python packages shall have integrated automatic unit testing that can be
   run within python via the command `<package>.test()` so that actual
   installations can be tested and test results can be recorded in jupyter
   notebooks for traceability.
-* Users of the code in the repository shall be able to use the code correctly by
-  cloning the repository and setting appropriate path variables correctly based
-  on the languages of each tool that they plan to use.
-* All public python packages shall be uploaded to [PyPi](https://pypi.org) so that users can choose
-  to use the code via installation with pip and without having to clone the repository.
 
 #### MATLAB-specific Requirements
 * __TBD__
