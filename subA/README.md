@@ -12,8 +12,8 @@ packaged together for distribution in the single python package
 However, since subA and subB are separate tools, they are located in the root of
 the repo as separate folders for independent development.
 
-Testing
-=======
+Testing Python Implementation
+=============================
 The subA package has unit testing integrated via the [Python `unittest` framework](https://docs.python.org/3/library/unittest.html).
 
 ## Executing tests
