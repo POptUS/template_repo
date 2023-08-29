@@ -25,9 +25,13 @@ code_requires = []
 test_requires = ["numpy"]
 install_requires = code_requires + test_requires
 
-package_data = {"mytemplate": ["tests/*.csv",
-                               "PkgData/*.json",
-                               "subA/tests/*.csv"]}
+package_data = {
+    "mytemplate": [
+        "tests/*.csv",
+        "PkgData/*.json",
+        "subA/tests/*.csv",
+    ]
+}
 
 project_urls = {
     "Source": "Git Hub",

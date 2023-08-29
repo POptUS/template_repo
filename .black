@@ -1,0 +1,11 @@
+[tool.black]
+line-length = 200
+force-exclude = '''
+(
+  /(
+    | \.git       
+    | pounders/python/tests/unit_tests
+  )/
+    | pounders/python/formquad.py
+)
+'''
