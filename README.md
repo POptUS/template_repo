@@ -2,12 +2,8 @@
 
 |             | Badges |
 |:-----------:|:------:|
-| General     |
-![GitHub](https://img.shields.io/github/license/POptUS/template_repo)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) |
-| Test Status |
-![GitHub Action CI](https://github.com/POptUS/template_repo/actions/workflows/github-ci-action.yml/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/POptUS/template_repo/badge.svg?branch=main)](https://coveralls.io/github/POptUS/template_repo?branch=main) |
+| General     | ![GitHub](https://img.shields.io/github/license/POptUS/template_repo) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) |
+| Test Status | ![GitHub Action CI](https://github.com/POptUS/template_repo/actions/workflows/github-ci-action.yml/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/POptUS/template_repo/badge.svg?branch=main)](https://coveralls.io/github/POptUS/template_repo?branch=main) |
 
 ## General Information
 This repository is a template and testbed for setting up new repositories in the
@@ -71,7 +67,7 @@ repos can be [seeded from this template](https://docs.github.com/en/repositories
   to use the code via installation with pip and without having to clone the repository.
 
 #### MATLAB-specific Requirements
-__TBD__
+* __TBD__
 
 ## Developer Information
 The python packages in this repository and the management of coverage reports
