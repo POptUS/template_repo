@@ -153,15 +153,15 @@ tox -r -e report,coveralls,aggregate -- <coverage files>
 Note that `tox` will correctly and automatically run `aggregate` before the others.
 
 ## Adding a New Python Package
-* Add all subpackage implementations to the root of the repo in accord with the above requirements (e.g., [subA](https://github.com/POptUS/template_repo/tree/main/subA))
+* Add all subpackage implementations to be included in the package to the root of the repo in accord with the above requirements (e.g., [subA](https://github.com/POptUS/template_repo/tree/main/subA))
 * Create a new python package in the root of the repo based on the structure of [mytemplate_pypkg](https://github.com/POptUS/template_repo/tree/main/mytemplate_pypkg)
+* Add in all subpackage implementations as symlinks in the correct subdirectory
+* Adapt the contents of `load_tests.py` in the main directory of the new package so
+  that it builds a suite that includes tests in the main package as well as the tests of all subpackages
 * Set `VERSION` to the desired starting version
 * Rewrite the `README.md` file for the new package
-* Adapt the contents of `tox.ini` to the new package
 * Adapt the contents of `setup.py` to the new package
-* Adapt the contents of `load_tests.py` to the base folder of the new package so
-  that it builds a suite that includes the tests of all sub-packages
-* Add in all subpackage implementations as symlinks in the correct subdirectory
-* Incorporate the package into the [GitHub CI Action](https://github.com/POptUS/template_repo/blob/main/.github/workflows/github-ci-action.yml)
+* Adapt the contents of `tox.ini` to the new package
 * Do local testing with `tox` if so desired
+* Incorporate the package into the [GitHub CI Action](https://github.com/POptUS/template_repo/blob/main/.github/workflows/github-ci-action.yml)
 * Commit, push, and check associated GitHub CI Action log to see if constructed and integrated correctly
