@@ -1,6 +1,6 @@
 import codecs
-
 from pathlib import Path
+
 from setuptools import setup
 
 _PKG_ROOT = Path(__file__).resolve().parent

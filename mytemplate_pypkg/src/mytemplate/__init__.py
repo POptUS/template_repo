@@ -6,11 +6,11 @@ from importlib.metadata import version
 
 __version__ = version("mytemplate")
 
-# constants
-from .constants import config
-
 # functions
 from .compute import compute
+
+# constants
+from .constants import config
 
 # ----- Python unittest-based test framework
 # Used for automatic test discovery
