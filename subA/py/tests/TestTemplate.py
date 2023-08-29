@@ -9,10 +9,10 @@ import unittest
 
 class TestTemplate(unittest.TestCase):
     def setUp(self):
-        print("setup() is an optional fixture that is automatically called before each test")
+        print("setUp() is an optional fixture that is automatically called before each test")
 
     def tearDown(self):
-        print("teardown() is an optional fixture that is automatically called after each test")
+        print("tearDown() is an optional fixture that is automatically called after each test")
 
     def testNothing(self):
         self.assertTrue(True)
