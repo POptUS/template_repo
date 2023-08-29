@@ -7,6 +7,7 @@ fail.
 
 import unittest
 
+
 class TestTemplate(unittest.TestCase):
     def setUp(self):
         print("setUp() is an optional fixture that is automatically called before each test")
