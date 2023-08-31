@@ -32,7 +32,7 @@ def load_tests(loader, *_):
     suites = loader.discover(
         start_dir=str(start_dir),
         top_level_dir=str(here_dir),
-        pattern="Test*.py"
+        pattern="Test*.py",
     )
     suites = load_tests_subC(loader, suites, None)
     print()

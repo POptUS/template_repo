@@ -3,12 +3,10 @@ Unit test the compute_a function
 """
 
 import unittest
-
-import numpy as np
-
 from pathlib import Path
 
 import mytemplate.subA as mytA
+import numpy as np
 
 _TEST_PATH = Path(__file__).resolve().parent
 
