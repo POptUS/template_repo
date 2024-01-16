@@ -149,10 +149,12 @@ jobs:
     - name: Build & install packages
       run: |
         pushd mytemplate_pypkg
-        python setup.py sdist && pip install $(ls mytemplate-*.tar.gz)
+        python setup.py sdist
+        pushd dist && pip install $(ls mytemplate-*.tar.gz) && popd
         popd
         pushd mytemplate2_pypkg
-        python setup.py sdist && pip install $(ls mytemplate2-*.tar.gz)
+        python setup.py sdist
+        pushd dist && pip install $(ls mytemplate2-*.tar.gz) && popd
         popd
 
     ##-- Run all tools at least once
