@@ -156,6 +156,7 @@ jobs:
         python setup.py sdist
         pushd dist && pip install $(ls mytemplate2-*.tar.gz) && popd
         popd
+        pip list
 
     ##-- Run all tools at least once
     - name: Exercise all tools

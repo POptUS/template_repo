@@ -4,6 +4,7 @@
 Run the script with -h to obtain more information regarding the script.
 """
 
+import sys
 import inspect
 import argparse
 import importlib
@@ -61,6 +62,7 @@ def main():
     print("Package dependencies: {}".format(pkg.metadata["Requires-Dist"]))
     print("Location: {}".format(location))
     print()
+    sys.stdout.flush()
 
     # ----- RUN FULL TEST SUITE
     return _SUCCESS if mytemplate2.test(verbosity_level) else _FAILURE
