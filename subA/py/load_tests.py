@@ -21,8 +21,8 @@ def load_tests(loader, suite, _):
 
     print(f"Discover tests in {start_dir}")
 
-    pkg_tests = loader.discover(start_dir=str(start_dir), \
-                                top_level_dir=str(start_dir), \
+    pkg_tests = loader.discover(start_dir=str(start_dir),
+                                top_level_dir=str(start_dir),
                                 pattern="Test*.py")
     suite.addTests(pkg_tests)
 

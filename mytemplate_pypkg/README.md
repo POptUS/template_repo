@@ -126,6 +126,7 @@ $ python -m unittest mytemplate.subA.tests.TestComputeA
   * Add test and package data in new subpackage to `package_data` if any
   * Update all other metadata as needed
 * Update `tox.ini`
+  * Add a new command that runs `flake8` explicitly on the new subpackage
   * Add a new testenv in `tox.ini` dedicated to the new subpackage if so desired
   * Synchronize python version information to version changes made in `setup.py` (if any)
 * Do local testing with `tox` if so desired
