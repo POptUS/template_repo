@@ -14,7 +14,11 @@ def test(verbosity=1):
 
     Parameters
         verbosity - the verbosity level to pass to the unittest TestRunner
+    Return
+        True if all tests in package passed; False, otherwise.
     """
     loader = unittest.TestLoader()
     suite = load_tests(loader, None, None)
-    unittest.TextTestRunner(verbosity=verbosity).run(suite)
+    result = unittest.TextTestRunner(verbosity=verbosity).run(suite)
+
+    return result.wasSuccessful()
