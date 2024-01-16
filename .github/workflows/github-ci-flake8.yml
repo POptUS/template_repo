@@ -21,6 +21,7 @@ jobs:
       run: |
         ./.github/workflows/setup_tox_github_action.sh
         pip install flake8
+        pip list
 
     ##-- Test Execution Step
     - name: Check all python packages
@@ -29,4 +30,5 @@ jobs:
         pushd mytemplate_pypkg && tox -r -e py-check && popd
         pushd mytemplate2_pypkg && tox -r -e py-check && popd
         # Check all other python in repo manually
+        echo "Run flake8 on tools/* ..."
         pushd tools && flake8 && popd
