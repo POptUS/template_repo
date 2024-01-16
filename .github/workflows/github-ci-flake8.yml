@@ -18,7 +18,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Setup python with tox
-      run: ./.github/workflows/setup_tox_github_action.sh
+      run: |
+        ./.github/workflows/setup_tox_github_action.sh
+        pip install flake8
 
     ##-- Test Execution Step
     - name: Check all python packages
@@ -26,7 +28,5 @@ jobs:
         # Let each python package dictate how to check code
         pushd mytemplate_pypkg && tox -r -e py-check && popd
         pushd mytemplate2_pypkg && tox -r -e py-check && popd
-        # Load up a virtual env to access flake8 ...
-        pushd mytemplate_pypkg && . ./.tox/check/bin/activate && pushd
-        # and check all other python in repo manually
+        # Check all other python in repo manually
         pushd tools && flake8 && popd
