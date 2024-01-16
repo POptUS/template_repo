@@ -25,10 +25,4 @@ jobs:
 
     ##-- Test Execution Step
     - name: Check all python packages
-      run: |
-        # Let each python package dictate how to check code
-        pushd mytemplate_pypkg && tox -r -e py-check && popd
-        pushd mytemplate2_pypkg && tox -r -e py-check && popd
-        # Check all other python in repo manually
-        echo "Run flake8 on tools/* ..."
-        pushd tools && flake8 && popd
+      run: ./tools/check_python_code.sh
