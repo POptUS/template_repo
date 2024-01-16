@@ -24,5 +24,6 @@ jobs:
         pip list
 
     ##-- Test Execution Step
+    # If we stop running this script, check if testTools needs updating
     - name: Check all python packages
       run: ./tools/check_python_code.sh
