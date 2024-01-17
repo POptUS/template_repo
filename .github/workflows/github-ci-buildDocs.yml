@@ -1,0 +1,48 @@
+name: Build documentation
+on: ["pull_request"]
+jobs:
+  build_pypkg_sphinx:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # We only need to run tools with a single python version.  Ideally
+      # this will be the latest version of python used in the action.
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.11"]
+    steps:
+    ##-- General Setup Steps
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Setup python with tox
+      run: ./.github/workflows/setup_tox_github_action.sh
+
+    - name: Build sphinx docs
+      run: |
+        pushd mytemplate_pypkg
+        tox -r -e py-pdf,py-html
+        popd
+        pushd mytemplate2_pypkg
+        tox -r -e py-pdf,py-html
+        popd
+
+    ##-- Publish sphinx docs
+    - name: Archive mytemplate docs
+      uses: actions/upload-artifact@v3
+      with:
+        name: mytemplate-sphinx-docs
+        path: |
+          mytemplate_pypkg/docs/build_html
+          mytemplate_pypkg/docs/build_pdf
+
+    - name: Archive mytemplate2 docs
+      uses: actions/upload-artifact@v3
+      with:
+        name: mytemplate2-sphinx-docs
+        path: |
+          mytemplate2_pypkg/docs/build_html
+          mytemplate2_pypkg/docs/build_pdf

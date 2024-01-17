@@ -9,13 +9,14 @@ def test(verbosity=1):
     using a simple text interface.
 
     This is included so that users can test their actual installation directly
-    or record test results in jupyter notebook output for reproducibility via
+    or record test results in jupyter notebook output for reproducibility
+    |via|::
+
                               mytemplate.test()
 
-    Parameters
-        verbosity - the verbosity level to pass to the unittest TestRunner
-    Return
-        True if all tests in package passed; False, otherwise.
+    :param verbosity: verbosity level to pass to the ``unittest``
+        ``TestRunner``
+    :return: True if all tests in package passed; False, otherwise.
     """
     loader = unittest.TestLoader()
     suite = load_tests(loader, None, None)
