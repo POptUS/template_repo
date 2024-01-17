@@ -24,10 +24,10 @@ jobs:
     - name: Build sphinx docs
       run: |
         pushd mytemplate_pypkg
-        tox -r -e py-pdf,py-html
+        tox -r -e pdf,html
         popd
         pushd mytemplate2_pypkg
-        tox -r -e py-pdf,py-html
+        tox -r -e pdf,html
         popd
 
     ##-- Publish sphinx docs
