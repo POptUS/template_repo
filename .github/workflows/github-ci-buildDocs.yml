@@ -7,7 +7,7 @@ jobs:
       # We only need to run tools with a single python version.  Ideally
       # this will be the latest version of python used in the action.
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
         python-version: ["3.11"]
     steps:
     ##-- General Setup Steps
