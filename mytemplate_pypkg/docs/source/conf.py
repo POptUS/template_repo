@@ -117,6 +117,7 @@ for each in latex_macro_files:
 # * Punctuation after theorem head
 # * Space after theorem head
 # * Theorem head spec (can be left empty, meaning ‘normal’)
-theorem_style = "\\newtheoremstyle{mytheorem}{5pt}{5pt}{\\itshape}{}{\\bfseries}{.}{.5em}{}\n"
+theorem_style = "\\newtheoremstyle{mytheorem}{5pt}{5pt}" \
+                "{\\itshape}{}{\\bfseries}{.}{.5em}{}\n"
 theorem_style += "\\theoremstyle{mytheorem}\n"
 latex_elements['preamble'] += theorem_style
