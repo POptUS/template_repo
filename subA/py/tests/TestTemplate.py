@@ -7,12 +7,17 @@ fail.
 
 import unittest
 
+
 class TestTemplate(unittest.TestCase):
     def setUp(self):
-        print("setUp() is an optional fixture that is automatically called before each test")
+        msg = "setUp() is an optional fixture that is automatically called " \
+              "before each test"
+        print(msg)
 
     def tearDown(self):
-        print("tearDown() is an optional fixture that is automatically called after each test")
+        msg = "tearDown() is an optional fixture that is automatically " \
+              "called after each test"
+        print(msg)
 
     def testNothing(self):
         self.assertTrue(True)

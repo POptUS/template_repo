@@ -90,6 +90,10 @@ The following commands can be run from the directory that contains this file.
   * This is likely only useful for developers working on a local clone
   * Apply `black` to all files in the package for cleaning/standardization who want to diff the changes made by `black` before committing
   * This should __never__ be included as default `tox` work since it could alter uncommitted code under active development
+* ``tox -r -e html``
+  * Generate and render the package's documentation locally in HTML
+* ``tox -r -e pdf``
+  * Generate and render the package's documentation locally as a PDF file
 * `tox -r -e testdeploy`
   * This is likely only useful for developers working on a local clone
   * Create source and wheel distributions and upload to TestPyPi for testing
@@ -126,6 +130,7 @@ $ python -m unittest mytemplate.subA.tests.TestComputeA
   * Add test and package data in new subpackage to `package_data` if any
   * Update all other metadata as needed
 * Update `tox.ini`
+  * Add a new command that runs `flake8` explicitly on the new subpackage
   * Add a new testenv in `tox.ini` dedicated to the new subpackage if so desired
   * Synchronize python version information to version changes made in `setup.py` (if any)
 * Do local testing with `tox` if so desired
