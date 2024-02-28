@@ -43,6 +43,9 @@ for key, value in macro_configs.items():
     rst_prolog += f".. |{key}| replace:: {value}\n"
 
 # Extensions
+autoclass_content = "init"
+autodoc_member_order = "bysource"
+
 autosectionlabel_prefix_document = True
 
 todo_include_todos = True
