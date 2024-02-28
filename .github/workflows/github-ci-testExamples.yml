@@ -35,7 +35,7 @@ jobs:
       run: |
         which python
         which pip
-        /usr/bin/env python
-        /usr/bin/env python3
+        /usr/bin/env python --version
+        /usr/bin/env python3 --version
         pip list
         ./examples/run_example2.py
