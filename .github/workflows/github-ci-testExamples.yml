@@ -1,17 +1,14 @@
 name: Test examples
 on: ["push", "pull_request"]
 jobs:
-  test_tools:
+  test_examples:
     runs-on: ${{ matrix.os }}
     strategy:
       # python-versions must be maintained consistent with associated setup.py
       # and tox.ini configuration.
-      #
-      # 3.9 is failing for some strange reason.  Temporarily remove.
       matrix:
         os: [ubuntu-latest, macos-latest]
-        #python-version: ["3.9", "3.10", "3.11"]
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.9", "3.10", "3.11"]
     steps:
     ##-- General Setup Steps
     - uses: actions/checkout@v3
