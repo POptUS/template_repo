@@ -14,5 +14,6 @@ the full system.
    infrastructure
    main_interface
    subC_interface
+   examples
    developers_guide
    bibliography
