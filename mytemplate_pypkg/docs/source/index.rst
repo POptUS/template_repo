@@ -42,6 +42,7 @@ refer to :numref:`Definition {number} <MyDefinition>` and :numref:`Theorem
    :caption: Contents:
 
    get_started
+   examples
    api
    developers_guide
    bibliography
