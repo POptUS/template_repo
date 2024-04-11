@@ -102,10 +102,24 @@ for each in latex_macro_files:
     for cmd_type, macros_all in macro_configs.items():
         for command, value in macros_all.items():
             if isinstance(value, str):
-                macro = rf"\{cmd_type}{{\{command}}} {{{value}}}"
+                macro = f"\{cmd_type}{{\{command}}} {{{value}}}"
             elif len(value) == 2:
                 value, n_args = value
-                macro = rf"\{cmd_type}{{\{command}}}[{n_args}] {{{value}}}"
+                macro = f"\{cmd_type}{{\{command}}}[{n_args}] {{{value}}}"
             else:
                 raise NotImplementedError("No use case yet")
             latex_elements['preamble'] += (macro + "\n")
+
+# Add spacing around boxes in amsthm environment
+# * Space above
+# * Space below
+# * Body font
+# * Indent amount
+# * Theorem head font
+# * Punctuation after theorem head
+# * Space after theorem head
+# * Theorem head spec (can be left empty, meaning ‘normal’)
+theorem_style = "\\newtheoremstyle{mytheorem}{5pt}{5pt}" \
+                "{\\itshape}{}{\\bfseries}{.}{.5em}{}\n"
+theorem_style += "\\theoremstyle{mytheorem}\n"
+latex_elements['preamble'] += theorem_style

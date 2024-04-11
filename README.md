@@ -163,6 +163,7 @@ Note that `tox` will correctly and automatically run `aggregate` before the othe
 * Adapt the contents of `setup.py` to the new package
 * Adapt the contents of `tox.ini` to the new package
 * Do local testing with `tox` if so desired
+* Add a `test_*_installation.py` script in the `tools` folder
 * Incorporate the package into the [Python code check script](tools/check_python_code.sh)
 * Incorporate the package into the [GitHub CI TestPyPkg](.github/workflows/github-ci-testPyPkgs.yml)
 * Commit, push, and check associated GitHub CI actions' logs to see if constructed and integrated correctly

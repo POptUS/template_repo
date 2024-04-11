@@ -17,7 +17,7 @@ pushd $REPO_PATH
 
 # Let each python package determine if its code is acceptable
 for pkg in "${PACKAGES[@]}"; do
-    pushd $pkg &> /dev/null
+    pushd $pkg &> /dev/null || exit 1
     tox -r -e check || exit $?
     popd &> /dev/null
 done
@@ -31,7 +31,7 @@ popd &> /dev/null
 for dir in "${FOLDERS[@]}"; do
     echo
     echo "Check python code in $dir/* ..."
-    pushd $dir &> /dev/null
+    pushd $dir &> /dev/null   || exit 1
     flake8 --config=./.flake8 || exit $?
     popd &> /dev/null
 done
