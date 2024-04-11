@@ -77,6 +77,10 @@ package's |tox| configuration file
 
   * Execute the full test suite for the package using the code installed into
     python
+* ``tox -r -e oldest``
+
+  * Execute the full test suite for the package using the code installed into
+    python but using the oldest allowable version of all dependencies
 * ``tox -r -e subA``
 
   * Execute the test suite for the ``subA`` sub-package only using the code
