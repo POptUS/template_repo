@@ -11,10 +11,10 @@ jobs:
         python-version: ["3.11"]
     steps:
     ##-- General Setup Steps
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -35,7 +35,7 @@ jobs:
 
     ##-- Publish sphinx docs
     - name: Archive mytemplate docs
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: mytemplate-sphinx-docs
         path: |
@@ -43,7 +43,7 @@ jobs:
           mytemplate_pypkg/docs/build_pdf
 
     - name: Archive mytemplate2 docs
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: mytemplate2-sphinx-docs
         path: |
