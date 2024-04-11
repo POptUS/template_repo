@@ -36,7 +36,7 @@ jobs:
     - name: Archive tested mytemplate distributions
       uses: actions/upload-artifact@v4
       with:
-        name: tested-mytemplate-packages
+        name: tested-mytemplate-packages-${{ matrix.os }}
         path: |
           mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.whl
           mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.tar.gz
@@ -76,7 +76,7 @@ jobs:
     - name: Archive tested mytemplate2 distributions
       uses: actions/upload-artifact@v4
       with:
-        name: tested-mytemplate2-packages
+        name: tested-mytemplate2-packages-${{ matrix.os }}
         path: |
           mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.whl
           mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.tar.gz
