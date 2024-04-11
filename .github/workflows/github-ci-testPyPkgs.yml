@@ -1,5 +1,5 @@
 name: Test all python packages
-on: ["push", "pull_request"]
+on: ["pull_request"]
 jobs:
   #####----- MYTEMPLATE FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
   #             AND OLDEST ALLOWABLE PYTHON SETUP
@@ -30,6 +30,17 @@ jobs:
         tox -r -e oldest
         popd
 
+    ##-- Publish mytemplate distributions
+    # These are pure python and don't depend on OS or python version used
+    # for testing.
+    - name: Archive tested mytemplate distributions
+      uses: actions/upload-artifact@v4
+      with:
+        name: tested-mytemplate-packages
+        path: |
+          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.whl
+          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.tar.gz
+
   #####----- MYTEMPLATE2 FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
   #             AND OLDEST ALLOWABLE PYTHON SETUP
   test_oldest_mytemplate2:
@@ -59,6 +70,17 @@ jobs:
         tox -r -e oldest
         popd
 
+    ##-- Publish mytemplate2 distributions
+    # These are pure python and don't depend on OS or python version used
+    # for testing.
+    - name: Archive tested mytemplate2 distributions
+      uses: actions/upload-artifact@v4
+      with:
+        name: tested-mytemplate2-packages
+        path: |
+          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.whl
+          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.tar.gz
+
   #####----- MYTEMPLATE FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
   test_mytemplate:
     runs-on: ${{ matrix.os }}
@@ -87,18 +109,6 @@ jobs:
         tox -r -e py-nocoverage
         popd
 
-    ##-- Publish mytemplate distributions
-    # These are pure python and don't depend on OS or python version used
-    # for testing.
-    # We do want to publish the standard distributions created by nocoverage
-    - name: Archive tested mytemplate distributions
-      uses: actions/upload-artifact@v4
-      with:
-        name: tested-mytemplate-packages
-        path: |
-          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.whl
-          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.tar.gz
-
   #####----- MYTEMPLATE2 FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
   test_mytemplate2:
     runs-on: ${{ matrix.os }}
@@ -126,18 +136,6 @@ jobs:
         pushd mytemplate2_pypkg
         tox -r -e py-nocoverage
         popd
-
-    ##-- Publish mytemplate2 distributions
-    # These are pure python and don't depend on OS or python version used
-    # for testing.
-    # We do want to publish the standard distributions created by nocoverage
-    - name: Archive tested mytemplate2 distributions
-      uses: actions/upload-artifact@v4
-      with:
-        name: tested-mytemplate2-packages
-        path: |
-          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.whl
-          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.tar.gz
 
   #####----- MEASURE COVERAGE ACROSS ALL PACKAGES
   coverage_ubuntu:
