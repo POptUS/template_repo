@@ -18,12 +18,15 @@ def version():
         return fptr.read().strip()
 
 
+def requirements():
+    fname = _PKG_ROOT.joinpath("oldest_reqs.txt")
+    with open(fname, "r") as fptr:
+        return [line.replace("==", ">=") for line in fptr.readlines()]
+
+
 # Changes made to python_requires should be propagated to all tox.ini and all
 # GitHub Action config files.
 python_requires = ">=3.9"
-code_requires = []
-test_requires = []
-install_requires = code_requires + test_requires
 
 package_data = {"mytemplate2": []}
 
@@ -49,7 +52,7 @@ setup(
     long_description=readme_md(),
     long_description_content_type="text/markdown",
     python_requires=python_requires,
-    install_requires=install_requires,
+    install_requires=requirements(),
     keywords="My Template2 Stuff",
     classifiers=[
         "Development Status :: 5 - Production/Stable",

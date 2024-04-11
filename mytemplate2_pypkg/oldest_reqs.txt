@@ -1,0 +1,4 @@
+# Upon changing or reassessing these, check setup.py to confirm that these
+# requirements are being correctly used to determine the overall package
+# version requirements.
+pandas == 2.1.2
