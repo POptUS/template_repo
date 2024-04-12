@@ -1,0 +1,10 @@
+[flake8]
+exclude =
+    .tox
+    build
+    dist
+per-file-ignores =
+    # Do not apply PEP8 to __init__.py files
+    src/mytemplate2/__init__.py:F401
+    src/mytemplate2/subC/__init__.py:F401
+max-line-length = 80

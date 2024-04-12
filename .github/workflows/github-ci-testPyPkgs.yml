@@ -1,6 +1,86 @@
-name: GitHub CI Action
-on: ["push", "pull_request"]
+name: Test all python packages
+on: ["pull_request"]
 jobs:
+  #####----- MYTEMPLATE FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
+  #             AND OLDEST ALLOWABLE PYTHON SETUP
+  test_oldest_mytemplate:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # python-version must be maintained consistent with associated setup.py
+      # and tox.ini configuration.
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.8"]
+    steps:
+    ##-- General Setup Steps
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Setup python with tox
+      run: ./.github/workflows/setup_tox_github_action.sh
+
+    ##-- Test Execution Step
+    - name: Test mytemplate python package
+      run: |
+        pushd mytemplate_pypkg
+        tox -r -e oldest
+        popd
+
+    ##-- Publish mytemplate distributions
+    # These are pure python and don't depend on OS or python version used
+    # for testing.
+    - name: Archive tested mytemplate distributions
+      uses: actions/upload-artifact@v4
+      with:
+        name: tested-mytemplate-packages-${{ matrix.os }}
+        path: |
+          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.whl
+          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.tar.gz
+
+  #####----- MYTEMPLATE2 FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
+  #             AND OLDEST ALLOWABLE PYTHON SETUP
+  test_oldest_mytemplate2:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # python-version must be maintained consistent with associated setup.py
+      # and tox.ini configuration.
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.9"]
+    steps:
+    ##-- General Setup Steps
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Setup python with tox
+      run: ./.github/workflows/setup_tox_github_action.sh
+
+    ##-- Test Execution Step
+    - name: Test mytemplate2 python package
+      run: |
+        pushd mytemplate2_pypkg
+        tox -r -e oldest
+        popd
+
+    ##-- Publish mytemplate2 distributions
+    # These are pure python and don't depend on OS or python version used
+    # for testing.
+    - name: Archive tested mytemplate2 distributions
+      uses: actions/upload-artifact@v4
+      with:
+        name: tested-mytemplate2-packages-${{ matrix.os }}
+        path: |
+          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.whl
+          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.tar.gz
+
   #####----- MYTEMPLATE FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
   test_mytemplate:
     runs-on: ${{ matrix.os }}
@@ -12,10 +92,10 @@ jobs:
         python-version: ["3.8", "3.9", "3.10", "3.11"]
     steps:
     ##-- General Setup Steps
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -29,18 +109,6 @@ jobs:
         tox -r -e py-nocoverage
         popd
 
-    ##-- Publish mytemplate distributions
-    # These are pure python and don't depend on OS or python version used
-    # for testing.
-    # We do want to publish the standard distributions created by nocoverage
-    - name: Archive tested mytemplate distributions
-      uses: actions/upload-artifact@v3
-      with:
-        name: tested-mytemplate-packages
-        path: |
-          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.whl
-          mytemplate_pypkg/.tox/.pkg/dist/mytemplate-*.tar.gz
-
   #####----- MYTEMPLATE2 FULL TESTING OF INSTALLED PACKAGE WITHOUT COVERAGE
   test_mytemplate2:
     runs-on: ${{ matrix.os }}
@@ -52,10 +120,10 @@ jobs:
         python-version: ["3.9", "3.10", "3.11"]
     steps:
     ##-- General Setup Steps
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -69,18 +137,6 @@ jobs:
         tox -r -e py-nocoverage
         popd
 
-    ##-- Publish mytemplate2 distributions
-    # These are pure python and don't depend on OS or python version used
-    # for testing.
-    # We do want to publish the standard distributions created by nocoverage
-    - name: Archive tested mytemplate2 distributions
-      uses: actions/upload-artifact@v3
-      with:
-        name: tested-mytemplate2-packages
-        path: |
-          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.whl
-          mytemplate2_pypkg/.tox/.pkg/dist/mytemplate2-*.tar.gz
-
   #####----- MEASURE COVERAGE ACROSS ALL PACKAGES
   coverage_ubuntu:
     runs-on: ubuntu-latest
@@ -91,10 +147,10 @@ jobs:
         python-version: ["3.11"]
     steps:
     ##-- General Setup Steps
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -122,7 +178,7 @@ jobs:
 
     ##-- Publish full coverage report as artifact
     - name: Archive code coverage results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: code-coverage-results
         path: |

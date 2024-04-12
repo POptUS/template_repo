@@ -2,8 +2,9 @@ from pathlib import Path
 
 
 def compute_a(x):
-    """
-    Obtain the result of appyling computation A to the given data x
+    r"""
+    :param x: :math:`x \in \R`
+    :return: :math:`x^2`
     """
     # Print filename so that we can see if we are running from an installed
     # package or from a local clone.
