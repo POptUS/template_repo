@@ -105,6 +105,8 @@ package's |tox| configuration file
 * ``tox -r -e pdf``
 
   * Generate and render the package's documentation locally as a PDF file
+  * Users are responsible for installing ``make`` and a compatible LaTeX
+    installation for immediate use by |tox|.
 
 Additionally, you can run any combination of the above such as ``tox -r -e
 report,coverage``.
@@ -150,6 +152,7 @@ Adding a New Subpackage to ``mytemplate``
     desired
   * Synchronize python version information to version changes made in
     ``setup.py`` (if any)
+  * Add a new command that runs `flake8` explicitly on the new subpackage
 * Do local testing with |tox| if so desired
 * Synchronize python version information in GitHub CI actions to version changes
   made in ``setup.py`` (if any)

@@ -9,7 +9,7 @@ def load_tests(loader, suite, _):
 
     to run as part of the package's full suite or |via|::
 
-                         python -m unittest mytemplate.examples
+                  python -m unittest mytemplate.subA.examples
 
     to run alone.
 

@@ -7,12 +7,12 @@ There should be at least three options for installing this package.  For
 developer installations, refer to the :numref:`developers_guide:Developer
 Environment`.
 
-|pip| install |via| `PyPi`_
+|pip| install |via| `PyPI`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _PyPi: https://pypi.org
+.. _PyPI: https://pypi.org
 .. _virtual environments: https://docs.python.org/3/library/venv.html
 
-.. note:: This package is not in PyPi and, therefore, this method cannot be
+.. note:: This package is not in PyPI and, therefore, this method cannot be
     executed in practice
 
 This is the preferred method for users who prefer |pip| installations over
@@ -40,7 +40,7 @@ direct use of local clones.
 
 This method might be useful to developers for testing/debugging or power users
 who would like to use a specific version of the package not available through
-``PyPi``.
+``PyPI``.
 
 * Click on the `GitHub action`_ associated with the commit whose package version
   is to be installed
