@@ -1,0 +1,23 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+options:
+  numbered: true
+parts:
+  - caption: Theory
+    numbered: 2
+    chapters:
+    - file: motivation
+  - caption: Tools
+    chapters:
+    - file: tool_overview
+  - caption: Examples
+    chapters:
+    - title: My Example
+      file: notebooks/MyExample.ipynb
+  - caption: Reference
+    chapters:
+    - file: bibliography
+    - file: appendix

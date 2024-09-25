@@ -1,0 +1,129 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Template Repository
+author: Me M. Me
+logo: logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: template_repo.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+    - "./references.bib"
+
+# Information about where the book exists on the web
+#repository:
+#  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+#  path_to_book: docs  # Optional path to your book, relative to the repository root
+#  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+#html:
+#  use_issues_button: true
+#  use_repository_button: true
+
+parse:
+  myst_enable_extensions:
+    - dollarmath
+    - amsmath
+    - substitution
+  myst_substitutions:
+    ie:      "*i.e.,*"
+    eg:      "*e.g.,*"
+    via:     "*via*"
+    poptus:  "POptUS"
+
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+  config:
+    bibtex_reference_style: label
+    bibtex_default_style: 'alpha'
+    mathjax3_config:
+      tex:
+        macros:
+          "eye":        "\\mathcal{I}"
+          "N":          "\\mathbb{N}"
+          "Z":          "\\mathbb{Z}"
+          "Q":          "\\mathbb{Q}"
+          "R":          "\\mathbb{R}"
+          "C":          "\\mathbb{C}"
+          "F":          "\\mathbb{F}"
+          "E":          "\\mathbb{E}"
+          "V":          "\\mathbb{V}"
+          "vec":       ["{\\mathbf{#1}}", 1]
+          "avec":       "\\vec{a}"
+          "bvec":       "\\vec{b}"
+          "cvec":       "\\vec{c}"
+          "dvec":       "\\vec{d}"
+          "evec":       "\\vec{e}"
+          "fvec":       "\\vec{f}"
+          "gvec":       "\\vec{g}"
+          "hvec":       "\\vec{h}"
+          "ivec":       "\\vec{i}"
+          "jvec":       "\\vec{j}"
+          "kvec":       "\\vec{k}"
+          "lvec":       "\\vec{l}"
+          "mvec":       "\\vec{m}"
+          "nvec":       "\\vec{n}"
+          "ovec":       "\\vec{o}"
+          "pvec":       "\\vec{p}"
+          "qvec":       "\\vec{q}"
+          "rvec":       "\\vec{r}"
+          "Rvec":       "\\vec{R}"
+          "svec":       "\\vec{s}"
+          "tvec":       "\\vec{t}"
+          "uvec":       "\\vec{u}"
+          "vvec":       "\\vec{v}"
+          "wvec":       "\\vec{w}"
+          "xvec":       "\\vec{x}"
+          "Xvec":       "\\vec{X}"
+          "yvec":       "\\vec{y}"
+          "zvec":       "\\vec{z}"
+          "deltavec":   "\\boldsymbol{\\delta}"
+          "epsvec":     "\\boldsymbol{\\epsilon}"
+          "etavec":     "\\boldsymbol{\\eta}"
+          "nuvec":      "\\boldsymbol{\\nu}"
+          "rhovec":     "\\boldsymbol{\\rho}"
+          "thetavec":   "\\boldsymbol{\\theta}"
+          "xivec":      "\\boldsymbol{\\xi}"
+          "Xivec":      "\\boldsymbol{\\Xi}"
+          "abs":       ["\\left\\lvert#1\\right\\rvert", 1]
+          "norm":      ["\\left\\lVert#1\\right\\rVert", 1]
+          "argmin":     "\\mathop{\\mathrm{arg\\,min}\\,}"
+          "Cov":       ["\\mathrm{Cov}\\left[#1\\right]", 1]
+          "Corr":      ["\\mathrm{Corr}\\left[#1\\right]", 1]
+          "innerp":    ["\\langle #1, #2 \\rangle", 2]
+          "nd":         "n"
+          "np":         "p"
+          "dataset":    "\\mathcal{D}"
+          "psdomain":   "\\mathcal{V}"
+          "psp":        "\\xvec"
+          "pspcomp":    "x"
+          "psphat":     "\\hat{\\psp}"
+          "pspstar":    "\\psp^*"
+          "Psp":        "\\Xvec"
+          "Psphat":     "\\hat{\\Psp}"
+          "Pspstar":    "\\Psp^*"
+          "Jm":         "J_{\\mvec}"
+          "JmHat":      "\\hat{J}_{\\mvec}"
+          "JmStar":     "{\\Jm^*}"
+          "Jr":         "J_{\\rvec}"
+          "JrHat":      "\\hat{J}_{\\rvec}"
+          "JrStar":     "{\\Jr^*}"
+          "Jk":         "J_{\\kvec}"
+          "JkHat":      "\\hat{J}_{\\kvec}"
+          "JkStar":     "{\\Jk^*}"
+          "Jrho":       "J_{\\rhovec}"
+          "JrhoHat":    "\\hat{J}_{\\rhovec}"
+          "JrhoStar":   "{\\Jrho^*}"
+          "iterate":   ["#1^{(#2)}", 2]

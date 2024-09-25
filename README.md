@@ -145,6 +145,20 @@ The following commands can be run from the directory that contains this
   * This is likely only useful for CI solutions
   * It is intended that this be run after or with `aggregate`
   * Send the aggegrated coverage report to Coveralls
+* `tox -r -e book`
+  * Generate the examples Jupyter book
+  * This generates the book cleanly from scratch and treats all warnings as
+    errors.  Therefore, this is the task to use for final testing of local
+    changes prior to committing, in CI tests, and for generating official
+    releases.
+* `tox -r -e bookdev`
+  * Allow developers to generate the examples Jupyter book in a quick and dirty
+    way.
+  * Generating the book from scratch can be slow, which would prohibit efficient
+    development of book contents in an interactive and iterative way.  This task
+    can potentially speed-up development, but might hide problems.
+  * It is intended that the standard `book` task always be run after using this
+    task.
 
 Additionally, you can run any combination of the above such as
 ```

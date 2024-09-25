@@ -10,8 +10,7 @@ REPO_PATH=$SCRIPT_PATH/..
 
 declare -a PACKAGES=("mytemplate_pypkg"
                      "mytemplate2_pypkg")
-declare -a FOLDERS=("tools"
-                    "examples")
+declare -a FOLDERS=("tools")
 
 pushd $REPO_PATH
 
